@@ -19,31 +19,31 @@ class vect2
 	int operator[](int index) const;
 	int &operator[](int index); // NON-CONST
 
-	vect2 operator-() const;
-	vect2 operator*(int num) const;
+	vect2 operator-() const; //(vect2(-_x, -_y));
 
-	vect2 operator++(int);
-	vect2 operator--(int);
+	vect2 operator*(int num) const; // (r *= num);
+	vect2 operator+(const vect2 &obj) const; // (r += obj);
+	vect2 operator-(const vect2 &obj) const; // (r -= obj);
+	vect2 operator*(const vect2 &obj) const; // (r *= obj);
 
-	vect2 operator+(const vect2 &obj) const;
-	vect2 operator-(const vect2 &obj) const;
-	vect2 operator*(const vect2 &obj) const;
+	vect2 operator++(int); // return old
+	vect2 operator--(int); //return old
+	
+	vect2 &operator*=(int num); //_x *= num; _y *= num;
 
-	vect2 &operator*=(int num);
+	vect2 &operator+=(const vect2 &obj); //_x += obj._x; _y += obj._y;
+	vect2 &operator-=(const vect2 &obj); //_x -= obj._x; _y -= obj._y;
+	vect2 &operator*=(const vect2 &obj); //_x *= obj._x; _y *= obj._y;
 
-	vect2 &operator+=(const vect2 &obj);
-	vect2 &operator-=(const vect2 &obj);
-	vect2 &operator*=(const vect2 &obj);
+	vect2 &operator++(); //_x++; _y++;
+	vect2 &operator--(); //_x--; _y--;
 
-	vect2 &operator++();
-	vect2 &operator--();
-
-	bool operator==(const vect2 &obj) const;
-	bool operator!=(const vect2 &obj) const;
+	bool operator==(const vect2 &obj) const; // _x == obj._x && _y == obj._y;
+	bool operator!=(const vect2 &obj) const; // (!(*this == obj));
 };
 
-vect2 operator*(int num, const vect2 &obj);
+vect2 operator*(int num, const vect2 &obj); // (obj * num);
 
-std::ostream &operator<<(std::ostream &os, const vect2 &obj);
+std::ostream &operator<<(std::ostream &os, const vect2 &obj); // os << "{" << obj[0] << ", " << obj[1] << "}";
 
 #endif
