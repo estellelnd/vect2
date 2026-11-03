@@ -5,7 +5,8 @@ vect2::vect()
 }
 
 vect2::~vect()
-{}
+{
+}
 
 vect2::vect2(const vect2 &src)
 {
@@ -14,5 +15,12 @@ vect2::vect2(const vect2 &src)
 
 vect2 vect2::operator=(const vect2 &src)
 {
-	if (*this != )
+	if (this != &src)
+	{
+		_x = src._x;
+		_y = src._y;
+	}
+	return (*this);
 }
+
+

@@ -85,15 +85,17 @@ vect2 vect2::operator--(int)
 	return (old);
 }
 
-vect2 operator*(int num, const vect2 &obj)
-{
-	return (obj * num);
-}
-
 vect2 &vect2::operator*=(int num)
 {
 	_x *= num;
 	_y *= num;
+	return (*this);
+}
+
+vect2 &vect2::operator*=(const vect2 &obj)
+{
+	_x *= obj._x;
+	_y *= obj._y;
 	return (*this);
 }
 
@@ -111,12 +113,6 @@ vect2 &vect2::operator-=(const vect2 &obj)
 	return (*this);
 }
 
-vect2 &vect2::operator*=(const vect2 &obj)
-{
-	_x *= obj._x;
-	_y *= obj._y;
-	return (*this);
-}
 
 vect2 &vect2::operator++()
 {
@@ -142,7 +138,14 @@ bool vect2::operator!=(const vect2 &obj) const
 	return (!(*this == obj));
 }
 
+vect2 operator*(int num, const vect2 &obj)
+{
+	return (obj * num);
+}
+
 std::ostream &operator<<(std::ostream &os, const vect2 &obj)
 {
 	return os << "{" << obj[0] << ", " << obj[1] << "}";
 }
+
+

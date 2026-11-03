@@ -26,9 +26,9 @@ class vect2
 	vect2 operator+(const vect2 &obj) const; // (r += obj);
 	vect2 operator-(const vect2 &obj) const; // (r -= obj);
 
+
 	vect2 operator++(int); // return old
 	vect2 operator--(int); //return old
-	
 	vect2 &operator*=(int num); //_x *= num; _y *= num;
 	vect2 &operator*=(const vect2 &obj); //_x *= obj._x; _y *= obj._y;
 	vect2 &operator+=(const vect2 &obj); //_x += obj._x; _y += obj._y;
