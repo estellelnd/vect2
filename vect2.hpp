@@ -22,24 +22,23 @@ class vect2
 	vect2 operator-() const; //(vect2(-_x, -_y));
 
 	vect2 operator*(int num) const; // (r *= num);
+	vect2 operator*(const vect2 &obj) const; // (r *= obj);
 	vect2 operator+(const vect2 &obj) const; // (r += obj);
 	vect2 operator-(const vect2 &obj) const; // (r -= obj);
-	vect2 operator*(const vect2 &obj) const; // (r *= obj);
 
 	vect2 operator++(int); // return old
 	vect2 operator--(int); //return old
 	
 	vect2 &operator*=(int num); //_x *= num; _y *= num;
-
+	vect2 &operator*=(const vect2 &obj); //_x *= obj._x; _y *= obj._y;
 	vect2 &operator+=(const vect2 &obj); //_x += obj._x; _y += obj._y;
 	vect2 &operator-=(const vect2 &obj); //_x -= obj._x; _y -= obj._y;
-	vect2 &operator*=(const vect2 &obj); //_x *= obj._x; _y *= obj._y;
 
 	vect2 &operator++(); //_x++; _y++;
 	vect2 &operator--(); //_x--; _y--;
 
-	bool operator==(const vect2 &obj) const; // _x == obj._x && _y == obj._y;
-	bool operator!=(const vect2 &obj) const; // (!(*this == obj));
+	bool operator==(const vect2 &obj) const; // return (_x == obj._x && _y == obj._y);
+	bool operator!=(const vect2 &obj) const; // return (!(*this == obj));
 };
 
 vect2 operator*(int num, const vect2 &obj); // (obj * num);
